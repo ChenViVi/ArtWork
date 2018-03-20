@@ -1,5 +1,7 @@
 package com.vivi.artwork.model;
 
+import java.sql.Date;
+
 /**
  * Created by vivi on 2018/3/20.
  */
@@ -10,7 +12,7 @@ public class User {
     private String name;
     private String password;
     private String email;
-    private String birth;
+    private Date birth;
     private String sex;
 
     public long getId() {
@@ -45,11 +47,11 @@ public class User {
         this.email = email;
     }
 
-    public String getBirth() {
+    public Date getBirth() {
         return birth;
     }
 
-    public void setBirth(String birth) {
+    public void setBirth(Date birth) {
         this.birth = birth;
     }
 
