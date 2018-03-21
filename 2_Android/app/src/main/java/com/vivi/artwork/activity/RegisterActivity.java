@@ -16,16 +16,13 @@ import android.os.Message;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -33,23 +30,21 @@ import com.baoyz.actionsheet.ActionSheet;
 import com.chenyuwei.basematerial.activity.BaseActivity;
 import com.chenyuwei.basematerial.util.Tool;
 import com.chenyuwei.basematerial.view.dialog.WaitDialog;
+import com.chenyuwei.loadimageview.LoadImageView;
 import com.vivi.artwork.R;
 import com.vivi.artwork.http.ConnectPHPToUpLoadFile;
 import com.vivi.artwork.http.RequestMaker;
 import com.vivi.artwork.http.ServiceFactory;
 import com.vivi.artwork.model.User;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
@@ -61,13 +56,12 @@ import static com.vivi.artwork.MyApplication.PERMISSION_STORAGE;
 
 public class RegisterActivity extends BaseActivity {
 
-    private ImageView ivAvatar;
+    private LoadImageView ivAvatar;
     private EditText etName;
     private EditText etEmail;
     private EditText etPassword;
     private EditText etBirth;
-    private RadioButton rbMale;
-    private RadioButton rbFamale;
+    private RadioButton rbFemale;
 
     private static final int REQUEST_PICTURE =0;
     private static final int REQUEST_CAMERA= 1;
@@ -75,6 +69,7 @@ public class RegisterActivity extends BaseActivity {
 
     private Bitmap photo;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("'IMG'_yyyyMMddHHmmss", Locale.CHINA);
+    SimpleDateFormat birthFormat = new SimpleDateFormat("yyyy年MM月dd日", Locale.CHINA);
     private String timeString;
     private String photoPath;
 
@@ -92,9 +87,8 @@ public class RegisterActivity extends BaseActivity {
         etEmail = (EditText) findViewById(R.id.etEmail);
         etPassword = (EditText) findViewById(R.id.etPassword);
         etBirth = (EditText) findViewById(R.id.etBirth);
-        ivAvatar = (ImageView) findViewById(R.id.ivAvatar);
-        rbMale = (RadioButton) findViewById(R.id.rbMale);
-        rbFamale = (RadioButton) findViewById(R.id.rbFemale);
+        ivAvatar = (LoadImageView) findViewById(R.id.ivAvatar);
+        rbFemale = (RadioButton) findViewById(R.id.rbFemale);
     }
 
     @Override
@@ -170,7 +164,7 @@ public class RegisterActivity extends BaseActivity {
         if (extras != null) {
             photo = extras.getParcelable("data");
             photoPath = saveImage(photo);
-            new Thread(new ConnectPHPToUpLoadFile(photoPath,upLoadFileHander, "http://139.199.32.74/files/up_file.php")).start();
+            new Thread(new ConnectPHPToUpLoadFile(photoPath, upLoadFileHandler, "http://139.199.32.74/files/up_file.php")).start();
         }
     }
 
@@ -213,17 +207,84 @@ public class RegisterActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_done:
+                String name = etName.getText().toString();
+                String email = etEmail.getText().toString();
+                String password = etPassword.getText().toString();
+                String birth = etBirth.getText().toString();
+                String avatar = photoPath.substring(photoPath.lastIndexOf("/") + 1);
+                int sex = 0;
+                if (rbFemale.isChecked()) sex = 1;
+                if (TextUtils.isEmpty(avatar)){
+                    toast("请上传头像");
+                }
+                else if (TextUtils.isEmpty(name)){
+                    toast("请填写姓名");
+                }
+                else if (TextUtils.isEmpty(email)){
+                    toast("请填写邮箱");
+                }
+                else if (Tool.isEmail(email)){
+                    toast("邮箱格式错误");
+                }
+                else if (TextUtils.isEmpty("密码")){
+                    toast("请填写密码");
+                }
+                else if (password.length() < 6){
+                    toast("密码不能小于6位");
+                }
+                else if (TextUtils.isEmpty(birth)){
+                    toast("请填写邮箱");
+                }
+                else {
+                    long birthStamp = 0;
+                    try {
+                        birthStamp = birthFormat.parse(birth).getTime();
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    final WaitDialog dialog = new WaitDialog(activity);
+                    dialog.show();
+                    new RequestMaker<User>(activity, ServiceFactory.getUserService().register(email,password,name,avatar,birthStamp,sex)){
+
+                        @Override
+                        protected void onSuccess(final User user) {
+                            Observable.timer(1, TimeUnit.SECONDS)
+                                    .observeOn(AndroidSchedulers.mainThread())
+                                    .subscribe(new Consumer<Long>() {
+                                        @Override
+                                        public void accept(Long aLong) throws Exception {
+                                            SharedPreferences.Editor editor = preferences.edit();
+                                            editor.putLong("uid",user.getData().getUser().getId());
+                                            editor.putString("name",user.getData().getUser().getName());
+                                            editor.putString("avatar",user.getData().getUser().getAvatar());
+                                            editor.apply();
+                                            dialog.dismiss();
+                                            startActivity(MainActivity.class);
+                                            setResult(WelcomeActivity.RESULT_DESTROY);
+                                            finish();
+                                        }
+                                    }) ;
+                        }
+
+                        @Override
+                        protected void onFail(int code, String msg) {
+                            super.onFail(code, msg);
+                            dialog.dismiss();
+                        }
+                    };
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private Handler upLoadFileHander = new Handler() {
+    private Handler upLoadFileHandler = new Handler() {
         public void handleMessage(Message msg) {
-            toast("fuck" + msg.what);
             switch (msg.what) {
-                case 0:debug();break;
+                case 0:
+                    ivAvatar.load(photo);
+                    break;
                 case 1:Toast.makeText(activity, "文件上传失败",Toast.LENGTH_SHORT).show();break;
             }
         }

@@ -35,7 +35,7 @@ public class UserController {
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     @ResponseBody
     public BaseEntity register(@RequestParam(value="email") String email, @RequestParam(value="password") String password,
-                               @RequestParam(value="name") String name, @RequestParam(value="birth") long birth,@RequestParam(value="sex") int sex) {
+                               @RequestParam(value="name") String name, @RequestParam(value="avatar") String avatar, @RequestParam(value="birth") long birth,@RequestParam(value="sex") int sex) {
         BaseEntity entity = new BaseEntity();
         //code=202
         if(userRepository.findByEmail(email).size() != 0){
@@ -43,7 +43,7 @@ public class UserController {
             entity.setMsg(msgRepository.findOne(entity.getCode()).getMsg());
         }
         //code=204
-        if(userRepository.findByName(name).size() != 0){
+        else if(userRepository.findByName(name).size() != 0){
             entity.setCode(204);
             entity.setMsg(msgRepository.findOne(entity.getCode()).getMsg());
         }
@@ -53,7 +53,7 @@ public class UserController {
             user.setEmail(email);
             user.setPassword(password);
             user.setName(name);
-            user.setAvatar(Default.def_avatar);
+            user.setAvatar(Default.def_img + avatar);
             user.setBirth(new Date(birth));
             user.setSex(sex);
             userRepository.save(user);

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
     <include
         android:id="@+id/toolbar"
@@ -11,11 +13,12 @@
         android:background="@color/colorPrimary"
         android:paddingTop="40dp"
         android:paddingBottom="40dp">
-        <ImageView
+        <com.chenyuwei.loadimageview.LoadImageView
             android:id="@+id/ivAvatar"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/ic_avatar"
+            app:shape="circle"
             android:layout_centerInParent="true"/>
     </RelativeLayout>
     <LinearLayout
@@ -41,7 +44,8 @@
                 android:background="@null"
                 android:hint="姓名"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
+                android:layout_marginRight="10dp"
+                android:maxLength="8"/>
         </LinearLayout>
         <View
             android:layout_width="match_parent"
@@ -91,7 +95,8 @@
                 android:background="@null"
                 android:hint="密码"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
+                android:layout_marginRight="10dp"
+                android:maxLength="18"/>
         </LinearLayout>
         <View
             android:layout_width="match_parent"

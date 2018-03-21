@@ -16,7 +16,8 @@ public interface UserService {
     Call<User> login(@Query("email") String email, @Query("password") String password);
 
     @GET("user/register")
-    Call<User> register(@Query("email") String email, @Query("password") String password, String name, String birth, int sex);
+    Call<User> register(@Query("email") String email, @Query("password") String password, @Query("name")String name,
+                        @Query("avatar") String avatar, @Query("birth") long birth, @Query("sex") int sex);
 
     @GET("user/detail")
     Call<User> detail(@Query("uid") String uid);
