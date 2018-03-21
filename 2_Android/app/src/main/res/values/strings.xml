@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ArtWork</string>
+
+    <string name="hintAccount">请输入邮箱号</string>
+    <string name="hintPaswd">请输入密码</string>
+    <string name="hintRePaswd">请再次输入密码</string>
 </resources>
