@@ -7,5 +7,5 @@ import com.chenyuwei.basematerial.BaseApplication;
  */
 
 public class MyApplication extends BaseApplication {
-
+    public static int PERMISSION_STORAGE = 0;
 }

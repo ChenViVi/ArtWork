@@ -12,6 +12,7 @@
         android:paddingTop="40dp"
         android:paddingBottom="40dp">
         <ImageView
+            android:id="@+id/ivAvatar"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/ic_avatar"
