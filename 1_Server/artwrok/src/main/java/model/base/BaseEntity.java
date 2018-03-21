@@ -2,7 +2,7 @@ package model.base;
 
 public class BaseEntity {
 
-    private int state = 0;
+
     private int code;
     private String msg;
     private Object data;
@@ -12,15 +12,11 @@ public class BaseEntity {
 
     }
 
-    public BaseEntity(int state, int code, String msg, Object data) {
-        this.state = state;
+    public BaseEntity(int code, String msg, Object data) {
+
         this.code = code;
         this.msg = msg;
         this.data = data;
-    }
-
-    public void setState(int state) {
-        this.state = state;
     }
 
     public void setCode(int code) {
@@ -33,10 +29,6 @@ public class BaseEntity {
 
     public void setData(Object data) {
         this.data = data;
-    }
-
-    public int getState() {
-        return state;
     }
 
     public int getCode() {

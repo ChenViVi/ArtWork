@@ -44,7 +44,6 @@ public class ProfileController {
         else {
             UserEntity user = users.get(0);
             //code=200
-            entity.setState(1);
             entity.setCode(200);
             Map<String,Object> dataMap = new HashMap<>();
             dataMap.put("user", user);

@@ -60,7 +60,6 @@ public class UserController {
             user = userRepository.findByEmail(email).get(0);
             Map<String,Object> dataMap = new HashMap<>();
             dataMap.put("user", user);
-            entity.setState(1);
             entity.setCode(200);
             entity.setData(dataMap);
         }
@@ -81,7 +80,6 @@ public class UserController {
             UserEntity user = users.get(0);
             //code=200
             if (user.getPassword().equals(password)){
-                entity.setState(1);
                 entity.setCode(200);
                 Map<String,Object> dataMap = new HashMap<>();
                 dataMap.put("user", user);

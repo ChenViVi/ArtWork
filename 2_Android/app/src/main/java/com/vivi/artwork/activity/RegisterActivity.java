@@ -3,6 +3,8 @@ package com.vivi.artwork.activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,7 +25,7 @@ import io.reactivex.functions.Consumer;
 
 public class RegisterActivity extends BaseActivity {
 
-    private Button btnRegister;
+
     private EditText etEmail;
     private EditText etPaswd;
 
@@ -37,63 +39,23 @@ public class RegisterActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setSupportActionBar(R.id.toolbar);
         setDisplayHomeAsUpEnabled(true);
-        btnRegister = (Button) findViewById(R.id.btnRegister);
         etEmail = (EditText) findViewById(R.id.etEmail);
-        etPaswd = (EditText) findViewById(R.id.etPaswd);
+        etPaswd = (EditText) findViewById(R.id.etPassword);
     }
 
     @Override
-    public void onClick(View view) {
-        super.onClick(view);
-        switch (view.getId()){
-            case R.id.btnRegister:
-                final String email = etEmail.getText().toString();
-                final String password = etPaswd.getText().toString();
-                if (Tool.isEmail(email)){
-                    toast("邮箱格式错误");
-                }
-                else if (password.length() < 6){
-                    toast("密码不能小于6位");
-                }
-                else if (password.length() > 18){
-                    toast("密码不能大于18位");
-                }
-                else {
-                    btnRegister.setEnabled(false);
-                    final WaitDialog dialog = new WaitDialog(activity);
-                    dialog.show();
-                    new RequestMaker<User>(activity, ServiceFactory.getUserService().login(email, password)){
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_register, menu);
+        return true;
+    }
 
-                        @Override
-                        protected void onSuccess(final User user) {
-                            Observable.timer(1, TimeUnit.SECONDS)
-                                    .observeOn(AndroidSchedulers.mainThread())
-                                    .subscribe(new Consumer<Long>() {
-                                        @Override
-                                        public void accept(Long aLong) throws Exception {
-                                            SharedPreferences.Editor editor = preferences.edit();
-                                            editor.putLong("uid",user.getData().getUser().getId());
-                                            editor.putString("name",user.getData().getUser().getName());
-                                            editor.putString("avatar",user.getData().getUser().getAvatar());
-                                            toast(user.getData().getUser().getName());
-                                            editor.apply();
-                                            dialog.dismiss();
-                                            startActivity(MainActivity.class);
-                                            setResult(WelcomeActivity.RESULT_DESTROY);
-                                            finish();
-                                        }
-                                    }) ;
-                        }
-
-                        @Override
-                        protected void onFail(int code, String msg) {
-                            super.onFail(code, msg);
-                            dialog.dismiss();
-                            btnRegister.setEnabled(true);
-                        }
-                    };
-                }
-                break;
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_done:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }
