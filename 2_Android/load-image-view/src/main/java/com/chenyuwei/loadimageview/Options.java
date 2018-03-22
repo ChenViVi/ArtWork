@@ -5,52 +5,53 @@ package com.chenyuwei.loadimageview;
  * Created by vivi on 2016/7/23.
  */
 public class Options {
-    private int failedRes;
-    private Options.Shape shape;
+    private int defaultSrc;
+    private Shape shape;
+    public static final int IMG_DEFAULT = R.drawable.img_default;
 
     public Options() {
-        this.failedRes = R.drawable.img_default;
-        this.shape = Options.Shape.DEFAULT;
+        this.defaultSrc = IMG_DEFAULT;
+        this.shape = Shape.DEFAULT;
     }
 
-    public Options(Options.Builder builder) {
-        this.failedRes = R.drawable.img_default;
-        this.shape = Options.Shape.DEFAULT;
-        this.failedRes = builder.failedRes;
+    public Options(Builder builder) {
+        this.defaultSrc = R.drawable.img_default;
+        this.shape = Shape.DEFAULT;
+        this.defaultSrc = builder.defaultSrc;
         this.shape = builder.shape;
     }
 
-    public void setShape(Options.Shape shape) {
+    public void setShape(Shape shape) {
         this.shape = shape;
     }
 
-    public void setFailedRes(int failedRes) {
-        this.failedRes = failedRes;
+    public void setDefaultSrc(int defaultSrc) {
+        this.defaultSrc = defaultSrc;
     }
 
-    public int getFailedRes() {
-        return this.failedRes;
+    public int getDefaultSrc() {
+        return this.defaultSrc;
     }
 
-    public Options.Shape getShape() {
+    public Shape getShape() {
         return this.shape;
     }
 
     public static class Builder {
-        private int failedRes;
-        private Options.Shape shape;
+        private int defaultSrc;
+        private Shape shape;
 
         public Builder() {
-            this.failedRes = R.drawable.img_default;
-            this.shape = Options.Shape.DEFAULT;
+            this.defaultSrc = IMG_DEFAULT;
+            this.shape = Shape.DEFAULT;
         }
 
-        public Options.Builder setFailedRes(int failedRes) {
-            this.failedRes = failedRes;
+        public Builder setDefaultSrc(int defaultSrc) {
+            this.defaultSrc = defaultSrc;
             return this;
         }
 
-        public Options.Builder setShape(Options.Shape shape) {
+        public Builder setShape(Shape shape) {
             this.shape = shape;
             return this;
         }

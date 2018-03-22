@@ -26,7 +26,7 @@ public class LoginActivity extends BaseActivity {
 
     private Button btnLogin;
     private EditText etEmail;
-    private EditText etPaswd;
+    private EditText etPassword;
 
     @Override
     protected int onBindView() {
@@ -40,7 +40,7 @@ public class LoginActivity extends BaseActivity {
         setDisplayHomeAsUpEnabled(true);
         btnLogin = (Button) findViewById(R.id.btnLogin);
         etEmail = (EditText) findViewById(R.id.etEmail);
-        etPaswd = (EditText) findViewById(R.id.etPaswd);
+        etPassword = (EditText) findViewById(R.id.etPassword);
     }
 
     @Override
@@ -49,7 +49,7 @@ public class LoginActivity extends BaseActivity {
         switch (view.getId()){
             case R.id.btnLogin:
                 final String email = etEmail.getText().toString();
-                final String password = etPaswd.getText().toString();
+                final String password = etPassword.getText().toString();
                 if (Tool.isEmail(email)){
                     toast("邮箱格式错误");
                 }

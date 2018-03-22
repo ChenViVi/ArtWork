@@ -36,6 +36,10 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         preferences = PreferenceManager.getDefaultSharedPreferences(activity);
     }
 
+    public long getUid(){
+        return preferences.getLong("uid",-1);
+    }
+
     protected void setSupportActionBar(int id) {
         toolbar = (Toolbar) (findViewById(id));
         setSupportActionBar(toolbar);

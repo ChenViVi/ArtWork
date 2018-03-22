@@ -21,6 +21,10 @@ public class WelcomeActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getUid() != -1){
+            startActivity(MainActivity.class);
+            finish();
+        }
         findViewById(R.id.llLogin);
         findViewById(R.id.llRegister);
     }
