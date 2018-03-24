@@ -1,6 +1,6 @@
 package com.vivi.artwork.http.service;
 
-import com.vivi.artwork.model.User;
+import com.vivi.artwork.model.json.User;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

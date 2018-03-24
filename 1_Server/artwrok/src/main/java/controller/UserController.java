@@ -67,10 +67,8 @@ public class UserController {
             user.setQqSign(result.urlSig);
             userRepository.save(user);
             user = userRepository.findByEmail(email).get(0);
-            Map<String,Object> dataMap = new HashMap<>();
-            dataMap.put("user", user);
             entity.setCode(200);
-            entity.setData(dataMap);
+            entity.setData(user);
         }
         return entity;
     }
@@ -90,9 +88,7 @@ public class UserController {
             //code=200
             if (user.getPassword().equals(password)){
                 entity.setCode(200);
-                Map<String,Object> dataMap = new HashMap<>();
-                dataMap.put("user", user);
-                entity.setData(dataMap);
+                entity.setData(user);
             }
             else {
                 entity.setCode(201);

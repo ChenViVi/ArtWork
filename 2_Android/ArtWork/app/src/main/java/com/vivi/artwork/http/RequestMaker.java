@@ -5,7 +5,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
-import com.vivi.artwork.model.base.BaseModel;
+import com.vivi.artwork.model.json.base.BaseModel;
 
 import retrofit2.Call;
 import retrofit2.Callback;

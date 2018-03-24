@@ -37,7 +37,7 @@ import com.vivi.artwork.R;
 import com.vivi.artwork.http.ConnectPHPToUpLoadFile;
 import com.vivi.artwork.http.RequestMaker;
 import com.vivi.artwork.http.ServiceFactory;
-import com.vivi.artwork.model.User;
+import com.vivi.artwork.model.json.User;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -256,15 +256,15 @@ public class RegisterActivity extends BaseActivity {
                                         @Override
                                         public void accept(Long aLong) throws Exception {
                                             SharedPreferences.Editor editor = preferences.edit();
-                                            editor.putLong("uid",user.getData().getUser().getId());
-                                            editor.putString("name",user.getData().getUser().getName());
-                                            editor.putString("email",user.getData().getUser().getEmail());
-                                            editor.putString("birth",user.getData().getUser().getBirth());
-                                            editor.putInt("sex",user.getData().getUser().getSex());
-                                            editor.putString("avatar",user.getData().getUser().getAvatar());
-                                            editor.putString("qqSign",user.getData().getUser().getQqSign());
+                                            editor.putLong("uid",user.getData().getId());
+                                            editor.putString("name",user.getData().getName());
+                                            editor.putString("email",user.getData().getEmail());
+                                            editor.putString("birth",user.getData().getBirth());
+                                            editor.putInt("sex",user.getData().getSex());
+                                            editor.putString("avatar",user.getData().getAvatar());
+                                            editor.putString("qqSign",user.getData().getQqSign());
                                             editor.apply();
-                                            TIMManager.getInstance().login(user.getData().getUser().getEmail(), user.getData().getUser().getQqSign()
+                                            TIMManager.getInstance().login(user.getData().getEmail(), user.getData().getQqSign()
                                                     , new TIMCallBack() {
                                                         @Override
                                                         public void onError(int code, String desc) {

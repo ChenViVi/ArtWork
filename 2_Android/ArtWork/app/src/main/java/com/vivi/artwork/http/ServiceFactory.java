@@ -1,6 +1,8 @@
 package com.vivi.artwork.http;
 
+import com.vivi.artwork.http.service.ProfileService;
 import com.vivi.artwork.http.service.UserService;
+import com.vivi.artwork.http.service.WorkService;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -20,4 +22,11 @@ public class ServiceFactory {
         return retrofit.create(UserService.class);
     }
 
+    public static ProfileService getProfileService() {
+        return retrofit.create(ProfileService.class);
+    }
+
+    public static WorkService getWorkService() {
+        return retrofit.create(WorkService.class);
+    }
 }

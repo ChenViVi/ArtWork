@@ -1,4 +1,4 @@
-package com.vivi.artwork.model.base;
+package com.vivi.artwork.model.json.base;
 
 import java.io.Serializable;
 

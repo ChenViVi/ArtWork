@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="5dp"
+    android:background="@color/bgWhite">
+    <com.chenyuwei.loadimageview.LoadImageView
+        android:id="@+id/ivWork"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        apps:shape="round"/>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+        <com.chenyuwei.loadimageview.LoadImageView
+            android:id="@+id/ivAvatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            apps:shape="circle"
+            android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="尚先生"
+                android:textSize="18sp"
+                android:layout_toEndOf="@+id/ivAvatar"
+                android:layout_toRightOf="@+id/ivAvatar"
+                android:layout_centerVertical="true"/>
+    </RelativeLayout>
+</LinearLayout>

@@ -45,9 +45,7 @@ public class ProfileController {
             UserEntity user = users.get(0);
             //code=200
             entity.setCode(200);
-            Map<String,Object> dataMap = new HashMap<>();
-            dataMap.put("user", user);
-            entity.setData(dataMap);
+            entity.setData(user);
         }
         return entity;
     }
@@ -72,9 +70,7 @@ public class ProfileController {
             //code=200
             userRepository.save(user);
             entity.setCode(200);
-            Map<String,Object> dataMap = new HashMap<>();
-            dataMap.put("user", user);
-            entity.setData(dataMap);
+            entity.setData(user);
         }
         return entity;
     }
