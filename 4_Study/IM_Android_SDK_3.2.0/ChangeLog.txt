@@ -1,0 +1,53 @@
+ImSDK 3.2.0
+
+1. 修复发送ugc小视频可能失败的问题
+2. 修复在断网情况下发送消息没有回调的问题
+3. 修复全员禁言不生效问题
+4、优化消息本地存储逻辑策略
+5、修复部分Crash问题
+
+ImSDK 3.1.3
+
+1. 修复全员禁言设置不生效的问题
+
+ImSDK 3.1.2
+
+1. 网络超时问题优化
+2. 语音下载异常问题修复
+3. 若干crash问题修复
+
+
+ImSDK 3.1.1
+
+1. 提供群组全员禁言功能
+2. 修复没有登录的时候获取群组列表导致crash的问题
+
+ImSDK 3.1.0
+
+1. 提供消息撤回功能（revokeMessage)
+2. 提供UGC短视频功能（TIMUGCElem)
+3. 修复离线被踢的情况下可能收不到6208错误码的问题
+
+ImSDK 3.0.2
+
+1. 修复AVChatRoom可能无法接收到群消息的问题
+2. 接口调整
+    i. 废弃TIMFileElem, TIMSoundElem中的setData接口
+    ii. 修正TIMManagerExt中的接口拼写： getConversionList => getConversationList
+3. 优化部分机型被杀掉应用后，qalservice无法自动启动的问题（重要）
+    需要在manifest添加对新加action(com.tencent.qalsdk.service.TASK_REMOVED)的监听。具体请参考文档(https://www.qcloud.com/document/product/269/9227#1.3-.E5.88.9B.E5.BB.BA.E5.BA.94.E7.94.A84)
+
+
+ImSDK 3.0.1
+
+1. 修复部分so库无法兼容Android 5.0以下机器的问题
+
+ImSDK 3.0.0
+
+1. 对SDK模块结构进行了调整，分别如下：
+    imsdk.jar	        ImSDK基础包，只提供登录、消息、资料关系链管理、群组管理等的最基础功能。
+    imsdk_group_ext.jar	群组管理扩展包，提供群组管理的高级功能，包括群资料管理、群成员管理、群未决等。
+    imsdk_msg_ext.jar	消息管理扩展包，提供消息管理的高级功能，包括本地消息存储、未读计数等。
+    imsdk_sns_ext.jar	资料关系链管理扩展包， 提供个人资料及关系链的高级功能，包括好友管理、黑名单等。
+2. 优化SDK初始化流程，分为SDK配置及用户配置两部分，具体请参考官网的开发文档。
+3. 调整了SDK的包结构，类的所在类包由原来的"com.tencent"调整为"com.tencent.imsdk"。

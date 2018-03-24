@@ -1,0 +1,10 @@
+bugly_2.4.0_imsdk_release.jar	Bugly包，crash上报用, 如不需要可删除，并调用TIMManager中的disableCrashReport进行禁用
+imsdk.jar	ImSDK基础包，只提供消息、资料关系链管理、群组管理等的最基础功能
+imsdk_group_ext.jar	群组管理扩展包，提供群组管理的高级功能
+imsdk_msg_ext.jar	消息管理扩展包，提供消息管理的高级功能
+imsdk_sns_ext.jar	资料关系链管理扩展包， 提供个人资料及关系链的高级功能
+mobilepb.jar	protobuffer处理相关jar包
+qalsdk.jar	SDK网络层jar包
+soload.jar	提高imsdk so库的加载成功率
+tls_sdk.jar	帐号系统jar包
+wup-1.0.0-SNAPSHOT.jar	无线统一协议jar包

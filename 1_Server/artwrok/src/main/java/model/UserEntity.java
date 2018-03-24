@@ -16,6 +16,7 @@ public class UserEntity {
     private Date birth;
     private int sex;
     private String avatar;
+    private String qqSign;
 
     public void setId(int id) {
         this.id = id;
@@ -117,5 +118,15 @@ public class UserEntity {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    @Basic
+    @Column(name = "qqSign")
+    public String getQqSign() {
+        return qqSign;
+    }
+
+    public void setQqSign(String qqSign) {
+        this.qqSign = qqSign;
     }
 }

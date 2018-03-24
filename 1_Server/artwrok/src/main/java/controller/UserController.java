@@ -10,13 +10,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import repository.MsgRepository;
 import repository.UserRepository;
-import utils.Default;
+import utils.Tools;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.util.HashMap;
-
 import java.util.List;
 import java.util.Map;
+
+import static utils.tls_sigature.GenTLSSignatureEx;
 
 
 /**
@@ -53,9 +55,16 @@ public class UserController {
             user.setEmail(email);
             user.setPassword(password);
             user.setName(name);
-            user.setAvatar(Default.def_img + avatar);
+            user.setAvatar(Tools.def_img + avatar);
             user.setBirth(new Date(birth));
             user.setSex(sex);
+            utils.tls_sigature.GenTLSSignatureResult result = null;
+            try {
+                result = GenTLSSignatureEx(1400077891, email, utils.tls_sigature.privStr);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            user.setQqSign(result.urlSig);
             userRepository.save(user);
             user = userRepository.findByEmail(email).get(0);
             Map<String,Object> dataMap = new HashMap<>();

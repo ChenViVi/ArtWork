@@ -1,0 +1,5 @@
+com.tencent.imsdk
+com.tencent.imsdk.ext.group
+com.tencent.imsdk.ext.message
+com.tencent.imsdk.ext.sns
+com.tencent.imsdk.ext.ugc

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\sdk\build\intermediates\bundles\default\libs\soload.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6becc9c086f7be9f85881c088d5c0a8d54553a6d">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\8\soload_66c69d2dc50314db98f81b1da50eea4718471212\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\sdk\build\intermediates\bundles\default\libs\cos-sdk-android.1.4.3.6.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5bf755629adb4d4a24b46674389d636827e0fc64">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\8\cos-sdk-android.1.4.3.6_d708dc5baa802a2dd976ef809fd65d6b07369055\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\sdk\build\intermediates\bundles\default\libs\qalsdk.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="09ed3561f3761234363d02687af4637f98416b19">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\8\qalsdk_051313c991e4348ffbbdd66ec3166523361ae7bb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\vivi\.android\build-cache\a7502a0384e3cd2b01194e58632452c2c697f573\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6c164c7654162d3d5dcfbc6c2def60b54a335313\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a3e32411a163c3dd37b1305212f4cbddca376ab2">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_0cb86d3ed0fdc3f2e1d902ef6c9e2d720931fe2c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\vivi\.android\build-cache\025ae96fa557942f8778909e2098337ea6a63ce5\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f2f19ad9e013bcb6c55ae53324cb9bb7b6a8d3a7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\sdk\build\intermediates\bundles\default\libs\libammsdk.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b5fe9dcdaca41bdb2874b503a628723c658346c8">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\8\libammsdk_b51915ed7a0e155fec5723882dba0f2a23fc1aff\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\3_Package\2_Develop\1_Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.4.0_0a85dcdde0ab6974398becf89af1e8f567b8923c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\sdk\build\intermediates\bundles\default\libs\bugly_2.4.0_imsdk_release.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="dfcd0f03a806d4be369ab8381dee2681822ef35f">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\8\bugly_2.4.0_imsdk_release_44e46f31b0bedceb8fc64bdddf3715387d37a881\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\sdk\build\intermediates\bundles\default\libs\tls_sdk.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2f96dbee1bd5f02f7dc87221c3eb6f0cf5ee99d7">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\8\tls_sdk_c930813064f69cdadcfd8fa42ffea27c606c4ae1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\vivi\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.5.2\ecf534dba3a8446ce84cbb797d314763be212a68\glide-3.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ecf534dba3a8446ce84cbb797d314763be212a68">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\glide-3.5.2_5fddbda6028aae70a438502bc3acbfa303080bae\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\sdk\build\intermediates\bundles\default\libs\imsdk_sns_ext.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6a29e0be6e66062897ebd5e875cd8df1423ec7b5">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\8\imsdk_sns_ext_7aee90bcd21e866c0c8e427761d37a1021f7dd43\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\sdk\build\intermediates\bundles\default\libs\imsdk_ugc_ext.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f092079dd63500e33ff1d87895ee1943ee79e0f3">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\8\imsdk_ugc_ext_2f5953d96d5474316a0b5ec27ae13669965c4528\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\sdk\build\intermediates\bundles\default\libs\okio-1.6.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="cc96a1b8821438d09a3fdbd22f7206d4dee358c3">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\8\okio-1.6.0_a53986ef6ef2af59fe72623ac445ac3241e7424c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\sdk\build\intermediates\bundles\default\libs\mobilepb.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="12db2628b7d6bcc9bb7632941f499bf860c503a4">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\8\mobilepb_3d2602e42659ed9dc17379208f0551888bcaf9b0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\sdk\build\intermediates\bundles\default\libs\imsdk_group_ext.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="47a2822bc8052329759b06854319e24c3ed9cd0e">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\8\imsdk_group_ext_17c3b882c88297f3a40114cf67f8abcf84d4e81c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\vivi\.android\build-cache\7726def15c8e8c7b09fcd38d5aad124edc6ed601\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e510ad90ff83dd519e5ba8c878e5b0999087b31b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_b0e1c50a4b9142918cdd0d8c273d4d40d1b320aa\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\sdk\build\intermediates\bundles\default\libs\HwPush_SDK_V2705.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f8e7dd11b85867206289b249ae12fd49128e9ca3">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\8\HwPush_SDK_V2705_ea83fa4439fec4bb067cbe445b21dec2c81edc07\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\sdk\build\intermediates\bundles\default\libs\imsdk_msg_ext.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="04cee03b992b2d8dd94171de1de3e86cf805a159">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\8\imsdk_msg_ext_dd6d4d7291287833d12f4fdc9bbd2ce5ed10d8df\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\sdk\build\intermediates\bundles\default\libs\okhttp-3.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="376a09409df6cb3f0593e8f3e9855423f9018ac9">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\8\okhttp-3.2.0_af3614ea6cd08ca83a2dea4e461251bd9662de03\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\sdk\build\intermediates\bundles\default\libs\wup-1.0.0-SNAPSHOT.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ed71856de464ff25335fdf6593662a2ba7f62535">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\8\wup-1.0.0-SNAPSHOT_67aa88d9e91e6feda33e3cf63472122025058afb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\vivi\.android\build-cache\ffba4cc2952975f7fb448f0e2fddae18ba409cc9\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_22d8988e17559123512001e3c465143aafecf038\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\sdk\build\intermediates\bundles\default\libs\open_sdk.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9df6cd90896d8685876a6e89d18a23d9240af9a0">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\8\open_sdk_5c622addc536d557b93d447917c8f867914876e6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\vivi\.android\build-cache\025ae96fa557942f8778909e2098337ea6a63ce5\output\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.4.0_8bca5de44c17c44a349a49bd7bc6c0e6cc6df230\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\sdk\build\intermediates\bundles\default\libs\MiPush_SDK_Client_3_0_3.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f38b0679890ed99af9675b33b296f9eb29924c0f">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\8\MiPush_SDK_Client_3_0_3_474500c3dc9f9ba378c3ac6696d6f352ac291260\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\sdk\build\intermediates\bundles\default\libs\txrtmpsdk.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2559360c80eb1ccd4865b9dfd207bb15317e205a">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\8\txrtmpsdk_04311001efe87d4a7c30bd0ada75bdf5bbde258e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\sdk\build\intermediates\bundles\default\libs\imsdk.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="38161d153747d427eaf5609da2b6a752ff658f83">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\8\imsdk_961923ee4223c62bcc9308222158eb00d34eadf1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\vivi\.android\build-cache\690b224f5378b81600d2c926c13cb5c57d9f3fd7\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="D:\0_Github\ArtWork\4_Study\IM_Android_SDK_3.2.0\samples\sample\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b436933738b39ca5349b532b31f84ff862b92038\classes.dex" />
+    </item>
+
+</items>

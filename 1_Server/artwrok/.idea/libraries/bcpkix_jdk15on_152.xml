@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="bcpkix-jdk15on-152">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/bcpkix-jdk15on-152.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/bcprov-jdk15on-152.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-codec-1.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/gson-2.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/json.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tls_sig_api.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,30 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:apps="http://schemas.android.com/apk/res-auto"
+    tools:context="com.vivi.artwork.fragment.BlankFragment"
+    android:orientation="horizontal">
+    <com.chenyuwei.loadimageview.LoadImageView
+        android:id="@+id/ivAvatar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/default_avatar"
+        android:layout_margin="10dp"
+        apps:shape="circle"
+        android:layout_centerVertical="true"/>
+    <TextView
+        android:id="@+id/tvContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_message"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:padding="10dp"
+        android:text="214t54334543543234344334"
+        android:gravity="center_vertical"
+        android:layout_toEndOf="@id/ivAvatar"
+        android:layout_toRightOf="@id/ivAvatar" />
+</RelativeLayout>
