@@ -31,6 +31,8 @@ import com.chenyuwei.basematerial.activity.BaseActivity;
 import com.chenyuwei.basematerial.util.Tool;
 import com.chenyuwei.basematerial.view.dialog.WaitDialog;
 import com.chenyuwei.loadimageview.LoadImageView;
+import com.tencent.imsdk.TIMCallBack;
+import com.tencent.imsdk.TIMManager;
 import com.vivi.artwork.R;
 import com.vivi.artwork.http.ConnectPHPToUpLoadFile;
 import com.vivi.artwork.http.RequestMaker;
@@ -262,10 +264,21 @@ public class RegisterActivity extends BaseActivity {
                                             editor.putString("avatar",user.getData().getUser().getAvatar());
                                             editor.putString("qqSign",user.getData().getUser().getQqSign());
                                             editor.apply();
-                                            dialog.dismiss();
-                                            startActivity(MainActivity.class);
-                                            setResult(WelcomeActivity.RESULT_DESTROY);
-                                            finish();
+                                            TIMManager.getInstance().login(user.getData().getUser().getEmail(), user.getData().getUser().getQqSign()
+                                                    , new TIMCallBack() {
+                                                        @Override
+                                                        public void onError(int code, String desc) {
+                                                            Log.e("fuck", "user1 login failed. code: " + code + " errmsg: " + desc);
+                                                        }
+
+                                                        @Override
+                                                        public void onSuccess() {
+                                                            dialog.dismiss();
+                                                            startActivity(MainActivity.class);
+                                                            setResult(WelcomeActivity.RESULT_DESTROY);
+                                                            finish();
+                                                        }
+                                                    });
                                         }
                                     }) ;
                         }

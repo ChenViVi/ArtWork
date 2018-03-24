@@ -1,12 +1,15 @@
 package com.vivi.artwork.fragment;
 
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.chenyuwei.basematerial.fragment.BaseDrawerFragment;
 import com.chenyuwei.loadimageview.LoadImageView;
 import com.chenyuwei.loadimageview.Options;
+import com.tencent.imsdk.TIMCallBack;
+import com.tencent.imsdk.TIMManager;
 import com.vivi.artwork.R;
 import com.vivi.artwork.activity.WelcomeActivity;
 
@@ -39,11 +42,24 @@ public class DrawFragment extends BaseDrawerFragment {
         super.onClick(v);
         switch (v.getId()){
             case R.id.llLogout:
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putLong("uid", -1);
-                editor.apply();
-                startActivity(WelcomeActivity.class);
-                activity.finish();
+                TIMManager.getInstance().logout(new TIMCallBack() {
+                    @Override
+                    public void onError(int code, String desc) {
+                        Log.e("fuck", "logout failed. code: " + code + " errmsg: " + desc);
+                        toast("注销失败");
+                    }
+
+                    @Override
+                    public void onSuccess() {
+                        //登出成功
+                        Log.e("fuck", "登出成功");
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putLong("uid", -1);
+                        editor.apply();
+                        startActivity(WelcomeActivity.class);
+                        activity.finish();
+                    }
+                });
                 break;
         }
     }

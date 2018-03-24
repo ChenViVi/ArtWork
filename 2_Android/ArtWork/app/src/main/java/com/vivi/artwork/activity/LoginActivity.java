@@ -3,6 +3,7 @@ package com.vivi.artwork.activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,6 +11,13 @@ import android.widget.EditText;
 import com.chenyuwei.basematerial.activity.BaseActivity;
 import com.chenyuwei.basematerial.util.Tool;
 import com.chenyuwei.basematerial.view.dialog.WaitDialog;
+import com.tencent.imsdk.TIMCallBack;
+import com.tencent.imsdk.TIMConversation;
+import com.tencent.imsdk.TIMConversationType;
+import com.tencent.imsdk.TIMManager;
+import com.tencent.imsdk.TIMMessage;
+import com.tencent.imsdk.TIMTextElem;
+import com.tencent.imsdk.TIMValueCallBack;
 import com.vivi.artwork.R;
 import com.vivi.artwork.http.RequestMaker;
 import com.vivi.artwork.http.ServiceFactory;
@@ -81,10 +89,21 @@ public class LoginActivity extends BaseActivity {
                                             editor.putString("avatar",user.getData().getUser().getAvatar());
                                             editor.putString("qqSign",user.getData().getUser().getQqSign());
                                             editor.apply();
-                                            dialog.dismiss();
-                                            startActivity(MainActivity.class);
-                                            setResult(WelcomeActivity.RESULT_DESTROY);
-                                            finish();
+                                            TIMManager.getInstance().login(user.getData().getUser().getEmail(), user.getData().getUser().getQqSign()
+                                                    , new TIMCallBack() {
+                                                @Override
+                                                public void onError(int code, String desc) {
+                                                    Log.e("fuck", "user1 login failed. code: " + code + " errmsg: " + desc);
+                                                }
+
+                                                @Override
+                                                public void onSuccess() {
+                                                    dialog.dismiss();
+                                                    startActivity(MainActivity.class);
+                                                    setResult(WelcomeActivity.RESULT_DESTROY);
+                                                    finish();
+                                                }
+                                            });
                                         }
                                     }) ;
                         }
