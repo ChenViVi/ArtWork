@@ -3,33 +3,44 @@ package model;
 import javax.persistence.*;
 
 /**
- * Created by vivi on 2018/3/20.
+ * Created by vivi on 2018/3/24.
  */
 @Entity
 @Table(name = "work", schema = "artwork", catalog = "")
 public class WorkEntity {
-    private long id;
-    private long uid;
+    private int id;
+    private int uid;
+    private int typeId;
     private String url;
 
     @Id
     @Column(name = "id")
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     @Basic
     @Column(name = "uid")
-    public long getUid() {
+    public int getUid() {
         return uid;
     }
 
-    public void setUid(long uid) {
+    public void setUid(int uid) {
         this.uid = uid;
+    }
+
+    @Basic
+    @Column(name = "type_id")
+    public int getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(int typeId) {
+        this.typeId = typeId;
     }
 
     @Basic
@@ -51,6 +62,7 @@ public class WorkEntity {
 
         if (id != that.id) return false;
         if (uid != that.uid) return false;
+        if (typeId != that.typeId) return false;
         if (url != null ? !url.equals(that.url) : that.url != null) return false;
 
         return true;
@@ -58,8 +70,9 @@ public class WorkEntity {
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (int) (uid ^ (uid >>> 32));
+        int result = id;
+        result = 31 * result + uid;
+        result = 31 * result + typeId;
         result = 31 * result + (url != null ? url.hashCode() : 0);
         return result;
     }

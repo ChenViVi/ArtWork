@@ -3,7 +3,7 @@ package model;
 import javax.persistence.*;
 
 /**
- * Created by vivi on 2018/3/20.
+ * Created by vivi on 2018/3/24.
  */
 @Entity
 @Table(name = "msg", schema = "artwork", catalog = "")
