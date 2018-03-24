@@ -23,6 +23,7 @@ public class LoadImageView extends ImageView implements ImageListener {
     public LoadImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
+        this.setScaleType(ScaleType.FIT_XY);
         TypedArray a = context.obtainStyledAttributes(attrs,R.styleable.LoadImageView);
         options.setDefaultSrc(a.getResourceId(R.styleable.LoadImageView_failed_src,R.drawable.img_default));
         switch (a.getInt(R.styleable.LoadImageView_shape,-1)){
