@@ -42,6 +42,13 @@ public class DrawFragment extends BaseDrawerFragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        tvName.setText(preferences.getString("name",""));
+        ivAvatar.setShaple(Options.Shape.CIRCLE).load(preferences.getString("avatar",""));
+    }
+
+    @Override
     public void onClick(View v) {
         super.onClick(v);
         switch (v.getId()){

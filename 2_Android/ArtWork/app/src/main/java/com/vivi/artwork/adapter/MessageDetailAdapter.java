@@ -20,6 +20,8 @@ import java.util.List;
 
 public class MessageDetailAdapter extends SuperBaseAdapter<MessageDetail> {
 
+    private String name = PreferenceManager.getDefaultSharedPreferences(activity).getString("name","");
+
     public MessageDetailAdapter(Activity activity, List<MessageDetail> data) {
         super(activity, data);
     }
@@ -32,6 +34,11 @@ public class MessageDetailAdapter extends SuperBaseAdapter<MessageDetail> {
 
     @Override
     protected int getItemViewLayoutId(int position, MessageDetail item) {
-        return R.layout.item_message;
+        if (item.getName().equals(name)){
+            return R.layout.item_message_self;
+        }
+        else {
+            return R.layout.item_message_object;
+        }
     }
 }

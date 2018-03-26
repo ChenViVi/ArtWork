@@ -12,12 +12,17 @@ import com.vivi.artwork.model.MessageDetail;
 public class MessageDetailActivity extends BaseRecyclerViewActivity<MessageDetail,MessageDetailAdapter> {
 
     @Override
+    protected int onBindView() {
+        return R.layout.activity_message_detail;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setSupportActionBar(R.id.toolbar);
         //setTitle(getIntent().getStringExtra("name"));
         setDisplayHomeAsUpEnabled(true);
-        data.add(new MessageDetail("sender1",preferences.getString("avatar",""),"test1"));
+        data.add(new MessageDetail("vivi1",preferences.getString("avatar",""),"test1"));
         data.add(new MessageDetail("sender2",preferences.getString("avatar",""),"test2"));
         notifyDataSetChanged();
     }

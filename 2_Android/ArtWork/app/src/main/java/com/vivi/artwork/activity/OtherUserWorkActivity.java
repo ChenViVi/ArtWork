@@ -67,7 +67,7 @@ public class OtherUserWorkActivity extends BaseRecyclerViewActivity<Work.DataBea
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_message:
-                startActivity(AddWorkActivity.class);
+                startActivity(MessageDetailActivity.class);
                 break;
         }
         return super.onOptionsItemSelected(item);
