@@ -76,7 +76,7 @@ public class LoginActivity extends BaseActivity {
                                         @Override
                                         public void accept(Long aLong) throws Exception {
                                             SharedPreferences.Editor editor = preferences.edit();
-                                            editor.putLong("uid",user.getData().getId());
+                                            editor.putInt("uid",user.getData().getId());
                                             editor.putString("name",user.getData().getName());
                                             editor.putString("email",user.getData().getEmail());
                                             editor.putString("birth",user.getData().getBirth());

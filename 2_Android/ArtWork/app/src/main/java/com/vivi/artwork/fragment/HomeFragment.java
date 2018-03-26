@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.chenyuwei.basematerial.fragment.BaseRecyclerViewFragment;
 
+import com.vivi.artwork.R;
 import com.vivi.artwork.adapter.WorkAdapter;
 import com.vivi.artwork.http.RequestMaker;
 import com.vivi.artwork.http.ServiceFactory;
@@ -13,9 +14,12 @@ import com.vivi.artwork.model.json.Work;
 
 public class HomeFragment extends BaseRecyclerViewFragment<Work.DataBean.WorksBean,WorkAdapter> {
 
+    private int uid;
+
     @Override
     protected void onCreateView() {
         super.onCreateView();
+        uid = preferences.getInt("uid", - 1);
         setPullRefreshEnable(true);
         new RequestMaker<Work>(activity, ServiceFactory.getWorkService().list(-1)){
 

@@ -13,5 +13,5 @@ import java.util.List;
 @Repository
 public interface WorkRepository extends JpaRepository<WorkEntity, Integer> {
     List<WorkEntity> findByTypeId(int id);
-    List<WorkEntity> findByUid(long id);
+    List<WorkEntity> findByUid(int id);
 }

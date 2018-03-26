@@ -28,11 +28,9 @@ import android.widget.Toast;
 
 import com.baoyz.actionsheet.ActionSheet;
 import com.chenyuwei.basematerial.activity.BaseActivity;
-import com.chenyuwei.basematerial.util.Tool;
 import com.chenyuwei.basematerial.view.dialog.WaitDialog;
 import com.chenyuwei.loadimageview.LoadImageView;
-import com.tencent.imsdk.TIMCallBack;
-import com.tencent.imsdk.TIMManager;
+
 import com.vivi.artwork.R;
 import com.vivi.artwork.http.ConnectPHPToUpLoadFile;
 import com.vivi.artwork.http.RequestMaker;
@@ -56,14 +54,13 @@ import io.reactivex.functions.Consumer;
 
 import static com.vivi.artwork.MyApplication.PERMISSION_STORAGE;
 
-public class RegisterActivity extends BaseActivity {
+public class EditProfileActivity extends BaseActivity {
 
     private LoadImageView ivAvatar;
     private EditText etName;
-    private EditText etEmail;
-    private EditText etPassword;
     private EditText etBirth;
     private RadioButton rbFemale;
+    private RadioButton rbMale;
 
     private static final int REQUEST_PICTURE =0;
     private static final int REQUEST_CAMERA= 1;
@@ -77,7 +74,7 @@ public class RegisterActivity extends BaseActivity {
 
     @Override
     protected int onBindView() {
-        return R.layout.activity_register;
+        return R.layout.activity_edit_profile;
     }
 
     @Override
@@ -86,11 +83,17 @@ public class RegisterActivity extends BaseActivity {
         setSupportActionBar(R.id.toolbar);
         setDisplayHomeAsUpEnabled(true);
         etName = (EditText) findViewById(R.id.etName);
-        etEmail = (EditText) findViewById(R.id.etEmail);
-        etPassword = (EditText) findViewById(R.id.etPassword);
         etBirth = (EditText) findViewById(R.id.etBirth);
         ivAvatar = (LoadImageView) findViewById(R.id.ivAvatar);
         rbFemale = (RadioButton) findViewById(R.id.rbFemale);
+        rbMale = (RadioButton) findViewById(R.id.rbMale);
+        etName.setText((preferences.getString("name","")));
+        etBirth.setText(preferences.getString("birth",""));
+        ivAvatar.load((preferences.getString("avatar","")));
+        if (preferences.getInt("sex", -1) != 0){
+            rbFemale.setSelected(true);
+            rbMale.setSelected(false);
+        }
     }
 
     @Override
@@ -201,7 +204,7 @@ public class RegisterActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_register, menu);
+        getMenuInflater().inflate(R.menu.menu_edit_profile, menu);
         return true;
     }
 
@@ -210,34 +213,21 @@ public class RegisterActivity extends BaseActivity {
         switch (item.getItemId()) {
             case R.id.action_done:
                 String name = etName.getText().toString();
-                String email = etEmail.getText().toString();
-                String password = etPassword.getText().toString();
                 String birth = etBirth.getText().toString();
-                String avatar = photoPath.substring(photoPath.lastIndexOf("/") + 1);
                 int sex = 0;
                 if (rbFemale.isChecked()) sex = 1;
-                if (TextUtils.isEmpty(avatar)){
-                    toast("请上传头像");
-                }
-                else if (TextUtils.isEmpty(name)){
+                if (TextUtils.isEmpty(name)){
                     toast("请填写姓名");
                 }
-                else if (TextUtils.isEmpty(email)){
-                    toast("请填写邮箱");
-                }
-                else if (Tool.isEmail(email)){
-                    toast("邮箱格式错误");
-                }
-                else if (TextUtils.isEmpty("密码")){
-                    toast("请填写密码");
-                }
-                else if (password.length() < 6){
-                    toast("密码不能小于6位");
-                }
-                else if (TextUtils.isEmpty(birth)){
-                    toast("请填写邮箱");
-                }
                 else {
+                    String avatar;
+                    if (TextUtils.isEmpty(photoPath)){
+                        avatar = preferences.getString("avatar","");
+                        avatar = avatar.substring(avatar.lastIndexOf("/") + 1)  ;
+                    }
+                    else{
+                        avatar = photoPath.substring(photoPath.lastIndexOf("/") + 1);
+                    }
                     long birthStamp = 0;
                     try {
                         birthStamp = birthFormat.parse(birth).getTime();
@@ -246,7 +236,7 @@ public class RegisterActivity extends BaseActivity {
                     }
                     final WaitDialog dialog = new WaitDialog(activity);
                     dialog.show();
-                    new RequestMaker<User>(activity, ServiceFactory.getUserService().register(email,password,name,avatar,birthStamp,sex)){
+                    new RequestMaker<User>(activity, ServiceFactory.getProfileService().edit(getUid(),name,avatar,birthStamp,sex)){
 
                         @Override
                         protected void onSuccess(final User user) {
@@ -264,21 +254,8 @@ public class RegisterActivity extends BaseActivity {
                                             editor.putString("avatar",user.getData().getAvatar());
                                             editor.putString("qqSign",user.getData().getQqSign());
                                             editor.apply();
-                                            TIMManager.getInstance().login(user.getData().getEmail(), user.getData().getQqSign()
-                                                    , new TIMCallBack() {
-                                                        @Override
-                                                        public void onError(int code, String desc) {
-                                                            Log.e("fuck", "user1 login failed. code: " + code + " errmsg: " + desc);
-                                                        }
-
-                                                        @Override
-                                                        public void onSuccess() {
-                                                            dialog.dismiss();
-                                                            startActivity(MainActivity.class);
-                                                            setResult(WelcomeActivity.RESULT_DESTROY);
-                                                            finish();
-                                                        }
-                                                    });
+                                            dialog.dismiss();
+                                            finish();
                                         }
                                     }) ;
                         }
