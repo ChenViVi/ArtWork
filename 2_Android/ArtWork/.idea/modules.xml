@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://D:\0_Github\ArtWork\2_Android\ArtWork\2_Android.iml" filepath="D:\0_Github\ArtWork\2_Android\ArtWork\2_Android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ArtWork.iml" filepath="$PROJECT_DIR$/ArtWork.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ArtWork.iml" filepath="$PROJECT_DIR$/.idea/ArtWork.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/base-material/base-material.iml" filepath="$PROJECT_DIR$/base-material/base-material.iml" />
       <module fileurl="file://$PROJECT_DIR$/load-image-view/load-image-view.iml" filepath="$PROJECT_DIR$/load-image-view/load-image-view.iml" />

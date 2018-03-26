@@ -71,7 +71,7 @@ public class DrawFragment extends BaseDrawerFragment {
                         //登出成功
                         Log.e("fuck", "登出成功");
                         SharedPreferences.Editor editor = preferences.edit();
-                        editor.putLong("uid", -1);
+                        editor.putInt("uid", -1);
                         editor.apply();
                         startActivity(WelcomeActivity.class);
                         activity.finish();

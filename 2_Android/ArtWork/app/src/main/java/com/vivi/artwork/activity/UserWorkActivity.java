@@ -40,7 +40,7 @@ public class UserWorkActivity extends BaseRecyclerViewActivity<Work.DataBean.Wor
         tvName = (TextView) findViewById(R.id.tvName);
         ivAvatar.load(preferences.getString("avatar",""));
         tvName.setText(preferences.getString("name",""));
-        new RequestMaker<Work>(activity, ServiceFactory.getWorkService().user(-1)){
+        new RequestMaker<Work>(activity, ServiceFactory.getWorkService().user(getUid())){
 
             @Override
             protected void onSuccess(final Work work) {
