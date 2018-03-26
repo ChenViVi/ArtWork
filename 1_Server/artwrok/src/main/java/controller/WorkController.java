@@ -44,7 +44,7 @@ public class WorkController {
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     @ResponseBody
-    public BaseEntity list(@RequestParam(value="uid") int uid, @RequestParam(value="type_id") int type_id,
+    public BaseEntity add(@RequestParam(value="uid") int uid, @RequestParam(value="type") String type,
                            @RequestParam(value="img") String img){
         BaseEntity entity = new BaseEntity();
         //code=206
@@ -54,21 +54,22 @@ public class WorkController {
             entity.setMsg(msgRepository.findOne(entity.getCode()).getMsg());
         }
         else {
-            //code=207
-            List<TypeEntity> types = typeRepository.findById(type_id);
+            List<TypeEntity> types = typeRepository.findByName(type);
+            entity.setData(types.size());
+            WorkEntity work = new WorkEntity();
+            work.setUid(uid);
+            work.setUrl(Tools.def_img + img);
             if (types.size() == 0){
-                entity.setCode(207);
-                entity.setMsg(msgRepository.findOne(entity.getCode()).getMsg());
+                TypeEntity typeEntity = new TypeEntity();
+                typeEntity.setName(type);
+                typeRepository.save(typeEntity);
+                work.setTypeId(typeRepository.findByName(type).get(0).getId());
             }
-            //code=207
             else {
-                WorkEntity work = new WorkEntity();
-                work.setUid(uid);
-                work.setTypeId(type_id);
-                work.setUrl(Tools.def_img + img);
-                workRepository.save(work);
-                entity.setCode(200);
+                work.setTypeId(types.get(0).getId());
             }
+            workRepository.save(work);
+            entity.setCode(200);
         }
         return entity;
     }
@@ -127,8 +128,6 @@ public class WorkController {
         BaseEntity entity = new BaseEntity();
         //code=200
         entity.setCode(200);
-        Map<String,Object> dataMap = new HashMap<>();
-        dataMap.put("types", typeRepository.findAll());
         entity.setData(typeRepository.findAll());
         return entity;
     }

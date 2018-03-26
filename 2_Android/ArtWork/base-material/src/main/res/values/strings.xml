@@ -16,6 +16,5 @@
     <string name="btnCancel">取消</string>
 
 
-
     <string name="tsRequestFailed">网络连接失败</string>
 </resources>

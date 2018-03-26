@@ -52,6 +52,7 @@ import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 
+import static com.vivi.artwork.MyApplication.PERMISSION_CAMERA;
 import static com.vivi.artwork.MyApplication.PERMISSION_STORAGE;
 
 public class EditProfileActivity extends BaseActivity {
@@ -101,10 +102,13 @@ public class EditProfileActivity extends BaseActivity {
         super.onClick(view);
         switch (view.getId()){
             case R.id.ivAvatar:
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && activity.checkSelfPermission(
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                    activity.requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && activity.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    activity.requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE,
                     }, PERMISSION_STORAGE);
+                }
+                else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && activity.checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                    activity.requestPermissions(new String[]{Manifest.permission.CAMERA}, PERMISSION_CAMERA);
                 }
                 else showSheet();
                 break;
@@ -283,16 +287,4 @@ public class EditProfileActivity extends BaseActivity {
             }
         }
     };
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == PERMISSION_STORAGE) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                showSheet();
-            } else {
-                toast("请给予存储权限！");
-            }
-        }
-    }
 }

@@ -27,7 +27,7 @@ public class MainActivity extends BaseTabBottomActivity {
         drawerFragment = (BaseDrawerFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
         drawerFragment.setUp(R.id.fragment_navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout), toolbar);
         addFragment(new HomeFragment(),"首页", R.drawable.ic_tab_home);
-        addFragment(new TypeFragment(),"发现",R.drawable.ic_tab_find);
+        addFragment(new TypeFragment(),"分类",R.drawable.ic_tab_find);
         addFragment(new MessageFragment(),"消息",R.drawable.ic_tab_message);
         initialise();
     }

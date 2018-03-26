@@ -16,7 +16,7 @@ import retrofit2.http.Query;
 public interface WorkService {
 
     @GET("work/add")
-    Call<BaseModel> add(@Query("uid") int uid, @Query("type_id") int type, @Query("img") String img);
+    Call<BaseModel> add(@Query("uid") int uid, @Query("type") String type, @Query("img") String img);
 
     @GET("work/user")
     Call<Work> user(@Query("uid") int uid);

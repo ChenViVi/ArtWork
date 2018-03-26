@@ -12,6 +12,7 @@ import com.tencent.imsdk.TIMCallBack;
 import com.tencent.imsdk.TIMManager;
 import com.vivi.artwork.R;
 import com.vivi.artwork.activity.ProfileActivity;
+import com.vivi.artwork.activity.UserWorkActivity;
 import com.vivi.artwork.activity.WelcomeActivity;
 
 
@@ -32,6 +33,7 @@ public class DrawFragment extends BaseDrawerFragment {
     protected void onCreateView() {
         super.onCreateView();
         findViewById(R.id.llProfile);
+        findViewById(R.id.llWork);
         findViewById(R.id.llLogout);
         tvName = (TextView) findViewById(R.id.tvName);
         ivAvatar = (LoadImageView) findViewById(R.id.ivAvatar);
@@ -45,6 +47,9 @@ public class DrawFragment extends BaseDrawerFragment {
         switch (v.getId()){
             case R.id.llProfile:
                 startActivity(ProfileActivity.class);
+                break;
+            case R.id.llWork:
+                startActivity(UserWorkActivity.class);
                 break;
             case R.id.llLogout:
                 TIMManager.getInstance().logout(new TIMCallBack() {

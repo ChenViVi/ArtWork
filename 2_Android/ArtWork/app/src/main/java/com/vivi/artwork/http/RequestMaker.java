@@ -18,7 +18,7 @@ public abstract class RequestMaker<T extends BaseModel> {
     private Call<T> mCall;
     private Context mContext;
     private final int SUCCESS_CODE = 200;
-    private final String TAG = "response";
+    private final String TAG = "RequestMaker";
 
     public RequestMaker(Context context, Call<T> call) {
         onStart();

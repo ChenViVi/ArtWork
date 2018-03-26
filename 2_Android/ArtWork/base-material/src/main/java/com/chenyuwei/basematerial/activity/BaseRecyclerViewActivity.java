@@ -23,7 +23,7 @@ public abstract class BaseRecyclerViewActivity<Item, Adapter extends SuperBaseAd
 
     protected ArrayList<Item> data = new ArrayList<>();
     private Adapter adapter;
-    private SuperRecyclerView recyclerView;
+    protected SuperRecyclerView recyclerView;
     private Toolbar toolbar;
 
     @Override
@@ -63,6 +63,10 @@ public abstract class BaseRecyclerViewActivity<Item, Adapter extends SuperBaseAd
     @Override
     public void onLoadMore() {
 
+    }
+
+    public void addHeaderView(View header){
+        adapter.addHeaderView(header);
     }
 
     protected void setPullLoadEnable(boolean enable) {

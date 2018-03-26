@@ -1,9 +1,12 @@
 package com.vivi.artwork.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.chenyuwei.basematerial.fragment.BaseRecyclerViewFragment;
+import com.vivi.artwork.activity.TypeWorkActivity;
 import com.vivi.artwork.adapter.TypeAdapter;
 import com.vivi.artwork.http.RequestMaker;
 import com.vivi.artwork.http.ServiceFactory;
@@ -24,6 +27,15 @@ public class TypeFragment extends BaseRecyclerViewFragment<Type.DataBean,TypeAda
                 notifyDataSetChanged();
             }
         };
+    }
+
+    @Override
+    protected void onItemClick(View view, int position, Type.DataBean dataBean) {
+        super.onItemClick(view, position, dataBean);
+        Intent intent = new Intent(activity, TypeWorkActivity.class);
+        intent.putExtra("id",dataBean.getId());
+        intent.putExtra("name",dataBean.getName());
+        startActivity(intent);
     }
 
     @Override

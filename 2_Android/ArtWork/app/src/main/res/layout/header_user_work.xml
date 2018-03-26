@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/bgGray"
     android:orientation="vertical">
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
+        layout="@layout/toolbar" />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
         android:paddingTop="20dp"
         android:paddingBottom="20dp">
-        <com.chenyuwei.loadimageview.LoadImageView
-            android:id="@+id/ivAvatar"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            app:shape="circle"
-            android:layout_centerInParent="true"/>
+    <com.chenyuwei.loadimageview.LoadImageView
+        android:id="@+id/ivAvatar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:shape="circle"
+        android:layout_centerInParent="true"/>
         <TextView
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
@@ -29,9 +28,4 @@
             android:layout_marginTop="30dp"
             android:textSize="16sp"/>
     </RelativeLayout>
-    <com.superrecycleview.superlibrary.recycleview.SuperRecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar" />
 </LinearLayout>

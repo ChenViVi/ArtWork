@@ -13,4 +13,5 @@ import java.util.List;
 @Repository
 public interface TypeRepository extends JpaRepository<TypeEntity, Integer> {
     List<TypeEntity> findById(int id);
+    List<TypeEntity> findByName(String name);
 }

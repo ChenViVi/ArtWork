@@ -10,6 +10,7 @@ import com.tencent.imsdk.TIMSdkConfig;
 
 public class MyApplication extends BaseApplication {
     public static int PERMISSION_STORAGE = 0;
+    public static int PERMISSION_CAMERA = 1;
 
     @Override
     public void onCreate() {
