@@ -60,7 +60,9 @@ public class OtherUserWorkActivity extends BaseRecyclerViewActivity<Work.DataBea
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_other_user_work, menu);
+        if (!tvName.getText().toString().equals(preferences.getString("name",""))){
+            getMenuInflater().inflate(R.menu.menu_other_user_work, menu);
+        }
         return true;
     }
 

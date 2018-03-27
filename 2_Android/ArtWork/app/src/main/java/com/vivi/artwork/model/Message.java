@@ -5,14 +5,20 @@ package com.vivi.artwork.model;
  */
 
 public class Message {
+    private String email;
     private String name;
     private String content;
     private String avatar;
 
-    public Message(String name, String avatar , String content){
+    public Message(String email,String name, String avatar , String content){
+        this.email = email;
         this.name = name;
         this.avatar = avatar;
         this.content = content;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setName(String name) {
@@ -25,6 +31,10 @@ public class Message {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public String getName() {

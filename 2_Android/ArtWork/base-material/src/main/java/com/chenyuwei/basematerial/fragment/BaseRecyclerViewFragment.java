@@ -27,7 +27,7 @@ public abstract class BaseRecyclerViewFragment<Item,Adapter extends SuperBaseAda
     protected RelativeLayout llContent;
     //protected View emptyView;
     private Adapter adapter;
-    private SuperRecyclerView recyclerView;
+    protected SuperRecyclerView recyclerView;
     private Toolbar toolbar;
     private TextView tvTitle;
 

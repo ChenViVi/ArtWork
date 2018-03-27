@@ -10,6 +10,7 @@ import com.chenyuwei.basematerial.activity.BaseActivity;
 import com.chenyuwei.basematerial.view.dialog.WaitDialog;
 import com.tencent.imsdk.TIMCallBack;
 import com.tencent.imsdk.TIMManager;
+import com.tencent.imsdk.TIMSdkConfig;
 import com.vivi.artwork.R;
 
 public class WelcomeActivity extends BaseActivity {
@@ -28,6 +29,7 @@ public class WelcomeActivity extends BaseActivity {
         if (getUid() != -1){
             final WaitDialog dialog = new WaitDialog(activity);
             dialog.show();
+            TIMManager.getInstance().init(this,  new TIMSdkConfig(1400077891));
             TIMManager.getInstance().login(preferences.getString("email",""), preferences.getString("qqSign","")
                     , new TIMCallBack() {
                         @Override
