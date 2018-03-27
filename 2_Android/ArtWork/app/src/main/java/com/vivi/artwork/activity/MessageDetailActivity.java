@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -69,8 +70,8 @@ public class MessageDetailActivity extends BaseRecyclerViewActivity<MessageDetai
                     @Override
                     public void onSuccess(List<TIMMessage> msgs) {//获取消息成功
                         //遍历取得的消息
-                        for(TIMMessage msg : msgs) {
-                            //可以通过timestamp()获得消息的时间戳, isSelf()是否为自己发送的消息
+                        for (int j = msgs.size() - 1; j >= 0; j--){
+                            TIMMessage msg = msgs.get(j);
                             for(int i = 0; i < msg.getElementCount(); ++i) {
                                 TIMElem elem = msg.getElement(i);
                                 TIMElemType elemType = elem.getType();
@@ -87,7 +88,7 @@ public class MessageDetailActivity extends BaseRecyclerViewActivity<MessageDetai
                             }
                         }
                         notifyDataSetChanged();
-                        recyclerView.scrollToPosition(data.size() - 1);
+                        recyclerView.scrollToPosition(data.size());
                     }
                 });
         TIMManager.getInstance().addMessageListener(new TIMMessageListener() {
@@ -118,27 +119,29 @@ public class MessageDetailActivity extends BaseRecyclerViewActivity<MessageDetai
         switch (view.getId()){
             case R.id.tvSend:
                 final String content = etContent.getText().toString();
-                TIMMessage msg = new TIMMessage();
-                TIMTextElem elem = new TIMTextElem();
-                elem.setText(content);
-                if(msg.addElement(elem) != 0) {
-                    Log.e("fuck", "user2 addElement failed");
-                    return;
-                }
-                conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息回调
-                    @Override
-                    public void onError(int code, String desc) {//发送消息失败
-                        Log.e("fuck", "send message failed. code: " + code + " errmsg: " + desc);
+                if (!TextUtils.isEmpty(content)){
+                    TIMMessage msg = new TIMMessage();
+                    TIMTextElem elem = new TIMTextElem();
+                    elem.setText(content);
+                    if(msg.addElement(elem) != 0) {
+                        Log.e("fuck", "user2 addElement failed");
+                        return;
                     }
+                    conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息回调
+                        @Override
+                        public void onError(int code, String desc) {//发送消息失败
+                            Log.e("fuck", "send message failed. code: " + code + " errmsg: " + desc);
+                        }
 
-                    @Override
-                    public void onSuccess(TIMMessage msg) {//发送消息成功
-                        etContent.setText("");
-                        data.add(new MessageDetail(name,avatar,content));
-                        notifyDataSetChanged();
-                        recyclerView.scrollToPosition(data.size() - 1);
-                    }
-                });
+                        @Override
+                        public void onSuccess(TIMMessage msg) {//发送消息成功
+                            etContent.setText("");
+                            data.add(new MessageDetail(name,avatar,content));
+                            notifyDataSetChanged();
+                            recyclerView.scrollToPosition(data.size());
+                        }
+                    });
+                }
                 break;
         }
     }

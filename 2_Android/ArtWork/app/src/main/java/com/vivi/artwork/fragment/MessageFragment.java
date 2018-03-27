@@ -40,7 +40,7 @@ public class MessageFragment extends BaseRecyclerViewFragment<Message,MessageAda
             if (elemType == TIMElemType.Text) {
                 final String s = ((TIMTextElem)elem).getText();
                 Log.e("fuck","get message is " + s);
-                new RequestMaker<User>(activity, ServiceFactory.getProfileService().detail(msg.getSender())){
+                new RequestMaker<User>(activity, ServiceFactory.getProfileService().detail(con.getPeer())){
                     @Override
                     protected void onSuccess(final User user) {
                         data.add(new Message(user.getData().getEmail(),user.getData().getName(),user.getData().getAvatar(),s));
@@ -72,6 +72,7 @@ public class MessageFragment extends BaseRecyclerViewFragment<Message,MessageAda
                 };
             }
             notifyDataSetChanged();
+            stopRefresh();
         }
     }
 

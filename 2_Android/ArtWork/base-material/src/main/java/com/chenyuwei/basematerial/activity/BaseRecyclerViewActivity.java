@@ -7,8 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.chenyuwei.basematerial.R;
-import com.chenyuwei.basematerial.adapter.BaseRecyclerViewAdapter;
-import com.chenyuwei.basematerial.fragment.BaseRecyclerViewFragment;
+
 import com.superrecycleview.superlibrary.adapter.SuperBaseAdapter;
 import com.superrecycleview.superlibrary.recycleview.SuperRecyclerView;
 
@@ -21,8 +20,8 @@ import java.util.List;
 
 public abstract class BaseRecyclerViewActivity<Item, Adapter extends SuperBaseAdapter> extends BaseActivity implements SuperRecyclerView.LoadingListener {
 
-    protected ArrayList<Item> data = new ArrayList<>();
-    private Adapter adapter;
+    protected List<Item> data = new ArrayList<>();
+    protected Adapter adapter;
     protected SuperRecyclerView recyclerView;
     private Toolbar toolbar;
 
@@ -100,5 +99,9 @@ public abstract class BaseRecyclerViewActivity<Item, Adapter extends SuperBaseAd
 
     protected void onItemClick(View view, int position, Item item){
 
+    }
+
+    protected void setData(List<Item> data){
+        this.data = data;
     }
 }
