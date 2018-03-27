@@ -89,6 +89,7 @@ public class LoginActivity extends BaseActivity {
                                                 @Override
                                                 public void onError(int code, String desc) {
                                                     Log.e("fuck", "user1 login failed. code: " + code + " errmsg: " + desc);
+                                                    dialog.dismiss();
                                                 }
 
                                                 @Override

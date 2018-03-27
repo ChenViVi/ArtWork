@@ -17,26 +17,28 @@
             android:layout_gravity="center"/>
     </android.support.v7.widget.Toolbar>
     <RelativeLayout
+        android:id="@+id/llMessage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        >
+        android:focusable="true"
+        android:focusableInTouchMode="true">
         <TextView
-            android:id="@+id/tv_comment"
+            android:id="@+id/tvSend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="发送"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp" />
         <EditText
-            android:id="@+id/edit_comment"
+            android:id="@+id/etContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:layout_toLeftOf="@+id/tv_comment"
-            android:layout_toStartOf="@+id/tv_comment"
+            android:layout_toLeftOf="@+id/tvSend"
+            android:layout_toStartOf="@+id/tvSend"
             android:layout_margin="10dp" />
     </RelativeLayout>
     <RelativeLayout
@@ -44,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar"
-        android:gravity="center">
+        android:layout_above="@id/llMessage">
         <com.superrecycleview.superlibrary.recycleview.SuperRecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"

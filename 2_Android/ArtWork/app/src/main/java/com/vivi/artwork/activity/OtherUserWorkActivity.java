@@ -1,5 +1,6 @@
 package com.vivi.artwork.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
@@ -67,7 +68,9 @@ public class OtherUserWorkActivity extends BaseRecyclerViewActivity<Work.DataBea
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_message:
-                startActivity(MessageDetailActivity.class);
+                Intent intent = new Intent(activity, MessageDetailActivity.class);
+                intent.putExtra("email",getIntent().getStringExtra("email"));
+                startActivity(intent);
                 break;
         }
         return super.onOptionsItemSelected(item);

@@ -51,6 +51,19 @@ public class UserWorkActivity extends BaseRecyclerViewActivity<Work.DataBean.Wor
     }
 
     @Override
+    public void onRefresh() {
+        super.onRefresh();
+        new RequestMaker<Work>(activity, ServiceFactory.getWorkService().user(getUid())){
+
+            @Override
+            protected void onSuccess(final Work work) {
+                data.addAll(work.getData().getWorks());
+                notifyDataSetChanged();
+            }
+        };
+    }
+
+    @Override
     protected RecyclerView.LayoutManager setLayoutManager() {
         return new GridLayoutManager(activity,2);
     }

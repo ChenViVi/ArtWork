@@ -43,6 +43,7 @@ public class WorkAdapter extends SuperBaseAdapter<Work.DataBean.WorksBean> {
                 intent.putExtra("id",item.getUserEntity().getId());
                 intent.putExtra("name",item.getUserEntity().getName());
                 intent.putExtra("avatar",item.getUserEntity().getAvatar());
+                intent.putExtra("email",item.getUserEntity().getEmail());
                 activity.startActivity(intent);
             }
         });
