@@ -13,7 +13,7 @@ import retrofit2.http.Query;
 public interface ProfileService {
 
     @GET("profile/detail")
-    Call<User> detail(@Query("uid") int uid);
+    Call<User> detail(@Query("email") String email);
 
     @GET("profile/edit")
     Call<User> edit(@Query("uid") int uid, @Query("name") String name,

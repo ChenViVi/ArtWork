@@ -33,10 +33,10 @@ public class ProfileController {
 
     @RequestMapping(value = "/detail", method = RequestMethod.GET)
     @ResponseBody
-    public BaseEntity detail(@RequestParam(value="uid") int uid) {
+    public BaseEntity detail(@RequestParam(value="email") String email) {
         BaseEntity entity = new BaseEntity();
         //code=206
-        List<UserEntity> users = userRepository.findById(uid);
+        List<UserEntity> users = userRepository.findByEmail(email);
         if (users.size() == 0){
             entity.setCode(206);
             entity.setMsg(msgRepository.findOne(entity.getCode()).getMsg());

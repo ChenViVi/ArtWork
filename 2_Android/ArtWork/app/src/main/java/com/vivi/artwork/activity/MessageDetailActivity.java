@@ -28,7 +28,9 @@ import java.util.List;
 
 public class MessageDetailActivity extends BaseRecyclerViewActivity<MessageDetail,MessageDetailAdapter> {
 
-    private String email;
+    private String objectEmail;
+    private String objectAvatar;
+    private String objectName;
     private EditText etContent;
     private TextView tvSend;
     private String avatar;
@@ -47,7 +49,9 @@ public class MessageDetailActivity extends BaseRecyclerViewActivity<MessageDetai
         setDisplayHomeAsUpEnabled(true);
         tvSend = (TextView) findViewById(R.id.tvSend);
         etContent = (EditText) findViewById(R.id.etContent);
-        email = getIntent().getStringExtra("email");
+        objectEmail = getIntent().getStringExtra("email");
+        objectAvatar = getIntent().getStringExtra("avatar");
+        objectName = getIntent().getStringExtra("name");
         avatar = preferences.getString("avatar","");
         name = preferences.getString("name","");
         TIMManager.getInstance().addMessageListener(new TIMMessageListener() {
@@ -61,7 +65,9 @@ public class MessageDetailActivity extends BaseRecyclerViewActivity<MessageDetai
                     if (elemType == TIMElemType.Text) {
                         String s = ((TIMTextElem)elem).getText();
                         Log.e("fuck","get message is " + s);
-                        data.add(new MessageDetail(msg.getSender(),"",s));
+                        if (msg.getSender().equals(objectEmail)){
+                            data.add(new MessageDetail(msg.getSender(),objectAvatar,s));
+                        }
                     }
                 }
                 notifyDataSetChanged();
@@ -76,7 +82,7 @@ public class MessageDetailActivity extends BaseRecyclerViewActivity<MessageDetai
         switch (view.getId()){
             case R.id.tvSend:
                 debug();
-                TIMConversation conversation = TIMManager.getInstance().getConversation(TIMConversationType.C2C, email);
+                TIMConversation conversation = TIMManager.getInstance().getConversation(TIMConversationType.C2C, objectEmail);
                 TIMMessage msg = new TIMMessage();
                 TIMTextElem elem = new TIMTextElem();
                 elem.setText(etContent.getText().toString());

@@ -11,7 +11,7 @@ public class MessageDetail {
 
     public MessageDetail(String name, String avatar , String content){
         this.name = name;
-        this.avatar = "http://owtt2jsve.bkt.clouddn.com/def_avatar.png";
+        this.avatar = avatar;
         this.content = content;
     }
 

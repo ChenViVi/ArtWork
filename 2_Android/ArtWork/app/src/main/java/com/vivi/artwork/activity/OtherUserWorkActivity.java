@@ -70,6 +70,8 @@ public class OtherUserWorkActivity extends BaseRecyclerViewActivity<Work.DataBea
             case R.id.action_message:
                 Intent intent = new Intent(activity, MessageDetailActivity.class);
                 intent.putExtra("email",getIntent().getStringExtra("email"));
+                intent.putExtra("name",getIntent().getStringExtra("name"));
+                intent.putExtra("avatar",getIntent().getStringExtra("avatar"));
                 startActivity(intent);
                 break;
         }
