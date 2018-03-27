@@ -10,7 +10,9 @@ import com.chenyuwei.basematerial.fragment.BaseRecyclerViewFragment;
 import com.tencent.imsdk.TIMConversation;
 import com.tencent.imsdk.TIMElem;
 import com.tencent.imsdk.TIMElemType;
+import com.tencent.imsdk.TIMManager;
 import com.tencent.imsdk.TIMMessage;
+import com.tencent.imsdk.TIMMessageListener;
 import com.tencent.imsdk.TIMTextElem;
 import com.tencent.imsdk.TIMValueCallBack;
 import com.tencent.imsdk.ext.message.TIMConversationExt;
@@ -31,9 +33,16 @@ public class MessageFragment extends BaseRecyclerViewFragment<Message,MessageAda
     protected void onCreateView() {
         super.onCreateView();
         setPullRefreshEnable(true);
-        List<TIMConversation> list = TIMManagerExt.getInstance().getConversationList();
-        for (TIMConversation con : list){
-            TIMConversationExt conExt = new TIMConversationExt(con);
+        TIMManager.getInstance().addMessageListener(new TIMMessageListener() {
+            @Override
+            public boolean onNewMessages(List<TIMMessage> list) {
+                onRefresh();
+                return false;
+            }
+        });
+        /*List<TIMConversation> list = TIMManagerExt.getInstance().getConversationList();
+        for (final TIMConversation con : list){
+            final TIMConversationExt conExt = new TIMConversationExt(con);
             TIMMessage msg =conExt.getLastMsgs(1).get(0);
             TIMElem elem = msg.getElement(0);
             TIMElemType elemType = elem.getType();
@@ -43,12 +52,18 @@ public class MessageFragment extends BaseRecyclerViewFragment<Message,MessageAda
                 new RequestMaker<User>(activity, ServiceFactory.getProfileService().detail(con.getPeer())){
                     @Override
                     protected void onSuccess(final User user) {
-                        data.add(new Message(user.getData().getEmail(),user.getData().getName(),user.getData().getAvatar(),s));
+                        data.add(new Message(user.getData().getEmail(),user.getData().getName(),user.getData().getAvatar(),s,(int)conExt.getUnreadMessageNum()));
                     }
                 };
             }
         }
-        notifyDataSetChanged();
+        notifyDataSetChanged();*/
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        onRefresh();
     }
 
     @Override
@@ -57,7 +72,7 @@ public class MessageFragment extends BaseRecyclerViewFragment<Message,MessageAda
         data.clear();
         List<TIMConversation> list = TIMManagerExt.getInstance().getConversationList();
         for (TIMConversation con : list){
-            TIMConversationExt conExt = new TIMConversationExt(con);
+            final TIMConversationExt conExt = new TIMConversationExt(con);
             TIMMessage msg =conExt.getLastMsgs(1).get(0);
             TIMElem elem = msg.getElement(0);
             TIMElemType elemType = elem.getType();
@@ -67,7 +82,7 @@ public class MessageFragment extends BaseRecyclerViewFragment<Message,MessageAda
                 new RequestMaker<User>(activity, ServiceFactory.getProfileService().detail(msg.getSender())){
                     @Override
                     protected void onSuccess(final User user) {
-                        data.add(new Message(user.getData().getEmail(),user.getData().getName(),user.getData().getAvatar(),s));
+                        data.add(new Message(user.getData().getEmail(),user.getData().getName(),user.getData().getAvatar(),s,(int)conExt.getUnreadMessageNum()));
                     }
                 };
             }

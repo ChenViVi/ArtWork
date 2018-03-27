@@ -9,12 +9,14 @@ public class Message {
     private String name;
     private String content;
     private String avatar;
+    private int read;
 
-    public Message(String email,String name, String avatar , String content){
+    public Message(String email,String name, String avatar , String content, int read){
         this.email = email;
         this.name = name;
         this.avatar = avatar;
         this.content = content;
+        this.read = read;
     }
 
     public void setEmail(String email) {
@@ -33,6 +35,10 @@ public class Message {
         this.content = content;
     }
 
+    public void setRead(int read) {
+        this.read = read;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -47,5 +53,9 @@ public class Message {
 
     public String getContent() {
         return content;
+    }
+
+    public int getRead() {
+        return read;
     }
 }

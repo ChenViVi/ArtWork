@@ -29,7 +29,6 @@ public class WelcomeActivity extends BaseActivity {
         if (getUid() != -1){
             final WaitDialog dialog = new WaitDialog(activity);
             dialog.show();
-            TIMManager.getInstance().init(this,  new TIMSdkConfig(1400077891));
             TIMManager.getInstance().login(preferences.getString("email",""), preferences.getString("qqSign","")
                     , new TIMCallBack() {
                         @Override

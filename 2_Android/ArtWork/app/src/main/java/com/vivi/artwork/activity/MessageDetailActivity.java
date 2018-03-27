@@ -1,17 +1,16 @@
 package com.vivi.artwork.activity;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.chenyuwei.basematerial.activity.BaseRecyclerViewActivity;
+import com.tencent.imsdk.TIMCallBack;
 import com.tencent.imsdk.TIMConversation;
 import com.tencent.imsdk.TIMConversationType;
 import com.tencent.imsdk.TIMElem;
@@ -38,6 +37,7 @@ public class MessageDetailActivity extends BaseRecyclerViewActivity<MessageDetai
     private String avatar;
     private String name;
     private TIMConversation conversation;
+    private TIMConversationExt conExt;
     @Override
     protected int onBindView() {
         return R.layout.activity_message_detail;
@@ -57,8 +57,8 @@ public class MessageDetailActivity extends BaseRecyclerViewActivity<MessageDetai
         avatar = preferences.getString("avatar","");
         name = preferences.getString("name","");
         conversation = TIMManager.getInstance().getConversation(TIMConversationType.C2C, objectEmail);
-        TIMConversationExt conExt = new TIMConversationExt(conversation);
-        conExt.getMessage(10, null, //不指定从哪条消息开始获取 - 等同于从最新的消息开始往前
+        conExt = new TIMConversationExt(conversation);
+        conExt.getMessage(100, null, //不指定从哪条消息开始获取 - 等同于从最新的消息开始往前
                 new TIMValueCallBack<List<TIMMessage>>() {//回调接口
                     @Override
                     public void onError(int code, String desc) {//获取消息失败
@@ -108,7 +108,23 @@ public class MessageDetailActivity extends BaseRecyclerViewActivity<MessageDetai
                     }
                 }
                 notifyDataSetChanged();
+                readAll();
                 return false;
+            }
+        });
+        readAll();
+    }
+
+    private void readAll(){
+        conExt.setReadMessage(null, new TIMCallBack() {
+            @Override
+            public void onError(int code, String desc) {
+                Log.e("fuck", "setReadMessage failed, code: " + code + "|desc: " + desc);
+            }
+
+            @Override
+            public void onSuccess() {
+                Log.d("fuck", "setReadMessage succ");
             }
         });
     }

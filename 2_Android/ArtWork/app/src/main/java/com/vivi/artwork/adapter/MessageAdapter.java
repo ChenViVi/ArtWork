@@ -23,10 +23,15 @@ public class MessageAdapter extends SuperBaseAdapter<Message> {
 
     @Override
     protected void convert(final BaseViewHolder holder, Message item, final int position) {
-
         holder.setText(R.id.tvName,item.getName());
         holder.setText(R.id.tvContent,item.getContent());
         holder.setImageURI(R.id.ivAvatar,item.getAvatar());
+        if (item.getRead() == 0){
+            holder.setVisible(R.id.tvRead,false);
+        }
+        else {
+            holder.setText(R.id.tvRead,String.valueOf(item.getRead()));
+        }
     }
 
     @Override
