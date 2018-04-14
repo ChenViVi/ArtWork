@@ -57,8 +57,16 @@ public class UserWorkActivity extends BaseRecyclerViewActivity<Work.DataBean.Wor
 
             @Override
             protected void onSuccess(final Work work) {
+                data.clear();
                 data.addAll(work.getData().getWorks());
                 notifyDataSetChanged();
+                stopRefresh();
+            }
+
+            @Override
+            protected void onFail(int code, String msg) {
+                super.onFail(code, msg);
+                stopRefresh();
             }
         };
     }

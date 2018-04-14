@@ -45,8 +45,10 @@ public class TypeFragment extends BaseRecyclerViewFragment<Type.DataBean,TypeAda
 
             @Override
             protected void onSuccess(final Type type) {
+                data.clear();
                 data.addAll(type.getData());
                 notifyDataSetChanged();
+                stopRefresh();
             }
 
             @Override

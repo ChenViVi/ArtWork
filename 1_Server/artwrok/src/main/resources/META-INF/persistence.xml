@@ -6,9 +6,9 @@
         <properties>
             <!-- 使用MySQL方言 -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
-            <property name="hibernate.connection.url" value="jdbc:mysql://139.199.32.74/artwork"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://23.105.219.203/artwork"/>
             <property name="hibernate.connection.username" value="root"/>
-            <property name="hibernate.connection.password" value="Cvivi@0584"/>
+            <property name="hibernate.connection.password" value="vivi@0584"/>
             <!-- <property name="hibernate.connection.url" value="jdbc:mysql://localhost/artwork"/>
              <property name="hibernate.connection.username" value="root"/>
              <property name="hibernate.connection.password" value=""/>-->

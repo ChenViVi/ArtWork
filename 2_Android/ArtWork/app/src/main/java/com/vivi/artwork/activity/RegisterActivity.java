@@ -217,10 +217,9 @@ public class RegisterActivity extends BaseActivity {
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
                 String birth = etBirth.getText().toString();
-                String avatar = photoPath.substring(photoPath.lastIndexOf("/") + 1);
                 int sex = 0;
                 if (rbFemale.isChecked()) sex = 1;
-                if (TextUtils.isEmpty(avatar)){
+                if (TextUtils.isEmpty(photoPath)){
                     toast("请上传头像");
                 }
                 else if (TextUtils.isEmpty(name)){
@@ -242,6 +241,7 @@ public class RegisterActivity extends BaseActivity {
                     toast("请填写邮箱");
                 }
                 else {
+                    String avatar = photoPath.substring(photoPath.lastIndexOf("/") + 1);
                     long birthStamp = 0;
                     try {
                         birthStamp = birthFormat.parse(birth).getTime();
